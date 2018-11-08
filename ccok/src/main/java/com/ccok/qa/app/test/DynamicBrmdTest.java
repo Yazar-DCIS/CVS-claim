@@ -19,5 +19,6 @@ public class DynamicBrmdTest extends TestExecutor{
 		dynamicBrmdPage.selectLob(prop.getProperty("Lob"));
 		dynamicBrmdPage.selectFilePath(System.getProperty("My_BRMD_Path"));
 		dynamicBrmdPage.clickUploadBtn();
+		//dynamicBrmdPage.clickRefreshBtn();
 	}
 }

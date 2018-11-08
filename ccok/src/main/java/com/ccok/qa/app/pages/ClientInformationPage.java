@@ -177,6 +177,10 @@ public class ClientInformationPage {
     	Thread.sleep(4000);
     	saveButtonMab.click();
     	Thread.sleep(4000);
+    	
+    }
+    
+    public void finalizePlan() throws InterruptedException {
     	finalizeButton.click();
     	Thread.sleep(4000);
     	finalizeProcessButton.click();

@@ -30,6 +30,13 @@ public class DynamicBrmdPage {
     @FindBy(id="ContentPlaceHolder1_btnUpldBRMD")
     WebElement uploadBtn;
     
+    @FindBy(id="ContentPlaceHolder1_btnRefresh")
+    WebElement refreshBtn;
+    
+    @FindBy(id="ContentPlaceHolder1_dynamicBMRDBulkUploadStatus_lnkview_0")
+    WebElement statusDetails;
+    
+    
     
     public void selectClientName(String client) {
         if (clientname.isDisplayed()) {
@@ -55,11 +62,36 @@ public class DynamicBrmdPage {
         
     }
     
-    public void clickUploadBtn() {
+    public void clickUploadBtn() throws InterruptedException {
         if (uploadBtn.isDisplayed()) {
         	uploadBtn.click();
+        	Thread.sleep(6000);
+        	System.out.println("BRMD Uploaded successfully!!!!");
+        	driver.close();
         }
     }
+    
+    public void clickRefreshBtn() throws InterruptedException {
+        if (refreshBtn.isDisplayed()) {
+        	Thread.sleep(6000);
+        	refreshBtn.click();
+        	System.out.println("BRMD Uploaded successfully!!!!");
+        	driver.close();
+        	
+        	String statusBrmd=statusDetails.getText();
+        	if(statusBrmd.contains("Processed")) {
+        		System.out.println("BRMD Uploaded successfully");
+        		
+        	}
+        	else if(statusBrmd.contains("Queued")) {
+        		System.out.println("Kindly wait for few minutes");
+        	}
+        	else {
+        		System.out.println("Kindly click refresh button and find the status");
+        	}
+        }
+    }
+    
     
 
 }

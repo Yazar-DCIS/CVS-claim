@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 public class TestScenarioPage {
 	
@@ -29,6 +30,33 @@ public class TestScenarioPage {
     @FindBy(id="ContentPlaceHolder1_btnAssociate")
     WebElement formularyAssociate;
     
+    @FindBy(id="ContentPlaceHolder1_btnFirstRun")
+    WebElement generateScenarioBtn;
+    
+    @FindBy(id="ContentPlaceHolder1_TabMember")
+    WebElement membermappingButton;
+    
+    @FindBy(id="ContentPlaceHolder1_BtMemberRequest")
+    WebElement initiateMembermappingButton;
+    
+    @FindBy(id="ContentPlaceHolder1_ddlState")
+    WebElement memberState;
+    
+    @FindBy(id="ContentPlaceHolder1_TextZipcode")
+    WebElement memberZipCode;
+    
+    @FindBy(id="ContentPlaceHolder1_okbutton")
+    WebElement memberOkButton;
+    
+    @FindBy(id="ContentPlaceHolder1_BtMemberMapping")
+    WebElement memberMap;
+    
+    
+    @FindBy(id="ContentPlaceHolder1_TabScenario")
+    WebElement scenarioTab;
+    
+    @FindBy(id="ContentPlaceHolder1_BtnExportToExcel")
+    WebElement testBedButton;
     
     
     public void setFormulary() throws InterruptedException {
@@ -39,7 +67,7 @@ public class TestScenarioPage {
     	}
     }
     
-    public void setFormularyID(String planType) {
+    public void setFormularyID(String planType) throws InterruptedException {
     	
     	if(planType.equalsIgnoreCase("exchange")) {
     		formularyMappingExchange.click();
@@ -53,8 +81,36 @@ public class TestScenarioPage {
     	}
     	
     	formularyAssociate.click();
+    	Thread.sleep(4000);
     }
     
+    public void setScenarion() throws InterruptedException {
+    	Thread.sleep(2000);
+    	generateScenarioBtn.click();
+    	Thread.sleep(2000);
+    }
+    
+    public void setMember(String state, String zipCode) throws InterruptedException {
+    	
+    	membermappingButton.click();
+    	Thread.sleep(2000);
+    	initiateMembermappingButton.click();
+    	Thread.sleep(2000);
+    	new Select(memberState).selectByVisibleText(state);
+    	memberZipCode.sendKeys(zipCode);
+    	memberOkButton.click();
+    	Thread.sleep(2000);
+    	memberMap.click();
+    	Thread.sleep(2000);
+    	
+    }
+    
+    public void setTestBed() throws InterruptedException {
+    	scenarioTab.click();
+    	Thread.sleep(4000);
+    	//testBedButton.click();
+    	//Thread.sleep(2000);
+    }
     
 }   
     	

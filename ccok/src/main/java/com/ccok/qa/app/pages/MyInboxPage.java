@@ -45,20 +45,20 @@ public class MyInboxPage {
     public void clickEditLink() throws InterruptedException {
         if (editLink.isDisplayed()) {
         	editLink.click();
-        	Thread.sleep(2000);
+        	Thread.sleep(4000);
         }
     }
     
     public void clickCompleteLink() throws InterruptedException {
         if (completeLink.isDisplayed()) {
         	completeLink.click();
-        	Thread.sleep(2000);
+        	Thread.sleep(4000);
         }
     }
     public void clickPlanLink() throws InterruptedException {
         if (planLink.isDisplayed()) {
         	planLink.click();
-        	Thread.sleep(2000);
+        	Thread.sleep(4000);
         }
     }
     

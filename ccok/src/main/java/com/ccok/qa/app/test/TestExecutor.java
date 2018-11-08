@@ -1,10 +1,14 @@
 package com.ccok.qa.app.test;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,7 +32,7 @@ public class TestExecutor {
 	public static void main(String[] args) throws InterruptedException, IOException {
 		
 
-		input = new FileInputStream("src\\main\\resources\\ccok\\data.properties");
+		input = new FileInputStream("data.properties");
 
 		// load a properties file
 		prop.load(input);
@@ -67,6 +71,7 @@ public class TestExecutor {
 		clientInformationTest.setCagDetails();
 		clientInformationTest.setSrxDetails();
 		clientInformationTest.setAccumDetails();
+		clientInformationTest.setFinalizePlan();
 		
 		
 		
@@ -99,6 +104,38 @@ public class TestExecutor {
 		// Switching to Parent window i.e Main Window.
 		driver.switchTo().window(MainWindow);
 		
+		testScenarionTest.setScenarion();
+		driver.switchTo().alert().accept();
+		
+		testScenarionTest.setMember();
+		driver.switchTo().alert().accept();
+		testScenarionTest.getTestBed();
+
+		try
+		{
+		     Robot robot = new Robot();
+		     driver.findElement(By.id("ContentPlaceHolder1_BtnExportToExcel")).sendKeys("&quot;&quot;");
+				robot.keyPress(KeyEvent.VK_ENTER);
+				robot.keyRelease(KeyEvent.VK_ENTER);
+				
+				Thread.sleep(4000);
+		     
+		     robot.setAutoDelay(250);
+		     System.out.println("tab ----------->");
+		     for(int i=0;i<=25;i++)
+		     {
+		    	 	
+		    	 robot.keyPress(KeyEvent.VK_TAB);
+		     }
+		     robot.keyRelease(KeyEvent.VK_ENTER);
+		     robot.keyRelease(KeyEvent.VK_ENTER);
+		     System.out.println("enter ----------->");
+		     //driver.close();
+		}
+		catch (AWTException e)
+		{
+		    e.printStackTrace();
+		}
 		
 		}
 		

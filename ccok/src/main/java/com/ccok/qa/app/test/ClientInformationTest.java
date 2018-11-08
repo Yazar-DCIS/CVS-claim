@@ -31,5 +31,13 @@ public class ClientInformationTest extends TestExecutor{
 		clientInformationPage.setAccum(System.getProperty("ded_Ind_Details"),System.getProperty("ded_Fam_Details"), System.getProperty("moop_Ind_Details"),System.getProperty("moop_Fam_Details"));
 		
 	}
+	
+	public void setFinalizePlan() throws InterruptedException {
+		
+		ClientInformationPage clientInformationPage = new ClientInformationPage(driver);
+		clientInformationPage.finalizePlan();
+		
+	}
+	
 
 }

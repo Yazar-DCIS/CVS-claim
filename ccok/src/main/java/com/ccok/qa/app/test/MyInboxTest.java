@@ -27,6 +27,8 @@ public class MyInboxTest extends TestExecutor{
 		else {
 			myInboxPage.clickPlanLink();
 		}
+		
+		
 	}
 	
 	
